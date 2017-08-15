@@ -35,3 +35,7 @@ def guardar_empleado(request):
     empleado = Empleado.objects.create(fecha_nacimiento= fecha_nacimiento, area= area, user = user, direccion = direccion, comentarios= comentarios)
     empleado.save()
     return HttpResponseRedirect(reverse('index'))
+
+def detalle_empleado(request, id_empleado):
+    empleado = Empleado.objects.get()
+    return render(request, "Empleados/index.html")
