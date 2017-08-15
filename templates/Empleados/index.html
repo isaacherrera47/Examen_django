@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Lista de empleados {% endblock %}
+{% block nav_title %} Lista de empleados {% endblock %}
+{% block content %}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de nacimiento</th>
+            <th>Puesto</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for empleado in empleados %}
+            <tr>
+                <th>{{ empleado.id }}</th>
+                <td>{{ empleado.user.first_name }}</td>
+                <td>{{ empleado.user.last_name }}</td>
+                <td>{{ empleado.fecha_nacimiento }}</td>
+                <td>{{ empleado.area }}</td>
+                <td>
+                    <button type="button" class="btn btn-info">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </td>
+            </tr>{% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
